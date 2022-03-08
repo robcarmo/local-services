@@ -1,0 +1,59 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: local-amb
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  finalizers:
+      - resources-finalizer.argocd.argoproj.io
+spec:
+  project: local-services
+  source:
+    repoURL: https://app.getambassador.io
+    chart: edge-stack
+    targetRevision: 7.3.2
+    helm:
+      values: |
+        emissary-ingress: #edge-stack inherit the values from emissary chart, so we need to pass the config under this value
+          crds:
+            enabled: true
+            create: true
+          adminService:
+            create: true
+          agent:
+            enabled: true 
+          createDefaultListeners: false # false is required to allow listeners to be created as custom config, because we have 2 instances of ambassador, for 1 instance this is not required
+          service:
+            type: LoadBalancer
+            externalTrafficPolicy: "Cluster"
+          # podAnnotations: # begins istio integration config
+          #   traffic.sidecar.istio.io/includeInboundPorts: ""
+          #   traffic.sidecar.istio.io/includeOutboundIPRanges: ""
+          #   proxy.istio.io/config: |
+          #     proxyMetadata:
+          #       OUTPUT_CERTS: /etc/istio-certs
+          #   sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-certs"}]'
+          # volumes:
+          #   - emptyDir:
+          #       medium: Memory
+          #     name: istio-certs
+          # volumeMounts:
+          #   - name: istio-certs
+          #     mountPath: /etc/istio-certs
+          #     readOnly: true
+          # env:
+          #   AMBASSADOR_ISTIO_SECRET_DIR: "/etc/istio-certs"
+          #   AMBASSADOR_ENVOY_BASE_ID: "1" # ends istio integration config
+          #   ambassador_id: "ambassador-mesh" # required because we have 2 instances of ambassador, for a single instance this is not required.
+          # metrics: #prometheus integration config begins
+          #   serviceMonitor:
+          #     enabled: true
+          #     selector: 
+          #       release: prometheus-mesh # prometheus integration config ends
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ambassador
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
