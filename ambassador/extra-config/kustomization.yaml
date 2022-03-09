@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
    - aes-crds.yaml
+   - host.yaml
