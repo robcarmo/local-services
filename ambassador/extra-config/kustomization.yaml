@@ -4,3 +4,7 @@ kind: Kustomization
 resources:
    - aes-crds.yaml
    - host.yaml
+   - basic-listener-http.yaml
+   - basic-listener-https.yaml
+   - ingressmappingargocd.yaml
+   
