@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ambassador-custom
+  name: local-ambassador-custom
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
   finalizers:
       - resources-finalizer.argocd.argoproj.io
 spec:
-  project: platform-services
+  project: local-services
   source:
-    repoURL: ssh://git@bitbucket.techops.usw2.upwork:7999/agora/helm-ambassador.git
-    targetRevision: dev
-    path: ambassador-custom
+    repoURL: git@github.com:robcarmo/local-services.git
+    targetRevision: HEAD
+    path: ambassador/extra-config
   destination:
-    server: https://F05BFB4560ED06DF43DD3F4263A939D8.yl4.us-west-1.eks.amazonaws.com
+    server: https://kubernetes.default.svc
     namespace: ambassador
