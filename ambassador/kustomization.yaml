@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
    - local-ambassador.yaml
    #- local-ambassador-custom.yaml
-   - extra-config
+   #- extra-config
