@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
    - local-ambassador.yaml
    #- local-ambassador-custom.yaml
+   - aes-crds.yaml
+   
