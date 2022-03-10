@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
 - ambassador
 #- ambassador/local-ambassador-custom.yaml
-#- istio-base
+- istio-base
 #- istio-base/local-istio-base-custom.yaml
 
