@@ -10,7 +10,7 @@ metadata:
 spec:
   project: local-services
   source:
-    repoURL: https://github.com/istio/istio/tree/master/manifests/charts
+    repoURL: https://github.com/robcarmo/istio/tree/master/manifests/charts
     path: istio-control/istio-discovery
     targetRevision: 1.13.1
   destination:
