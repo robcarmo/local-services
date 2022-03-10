@@ -11,7 +11,7 @@ spec:
   project: local-services
   source:
     repoURL: https://github.com/istio/istio/tree/master/manifests/charts
-    chart: base
+    path: base
     targetRevision: 1.13.1
   destination:
     server: https://kubernetes.default.svc
