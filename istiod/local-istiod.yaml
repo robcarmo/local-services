@@ -10,8 +10,8 @@ metadata:
 spec:
   project: local-services
   source:
-    repoURL: https://github.com/robcarmo/istio/tree/master/manifests/charts
-    path: istio-control/istio-discovery
+    repoURL: git@github.com:robcarmo/istio.git
+    path: manifests/charts/istio-control/istio-discovery
     targetRevision: 1.13.1
   destination:
     server: https://kubernetes.default.svc
