@@ -10,8 +10,8 @@ metadata:
 spec:
   project: local-services
   source:
-    repoURL: https://istio-release.storage.googleapis.com/charts
-    chart: base
+    repoURL: https://github.com/istio/istio.git
+    chart: manifests/charts/base
     targetRevision: 1.13.1
   destination:
     server: https://kubernetes.default.svc
