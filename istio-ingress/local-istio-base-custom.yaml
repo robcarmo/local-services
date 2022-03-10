@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-ingress-custom-1-13-1
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  finalizers:
+      - resources-finalizer.argocd.argoproj.io
+spec:
+  project: local-services
+  source:
+    repoURL: git@github.com:robcarmo/local-services.git
+    targetRevision: HEAD
+    path: istiod/extra-config
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: istio-system
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
