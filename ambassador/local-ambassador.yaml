@@ -63,6 +63,14 @@ spec:
             AMBASSADOR_ISTIO_SECRET_DIR: "/etc/istio-certs"
             AMBASSADOR_ENVOY_BASE_ID: "1" # ends istio integration config
           #   ambassador_id: "ambassador-mesh" # required because we have 2 instances of ambassador, for a single instance this is not required.
+          resources: # +doc-gen:break
+          # Recommended resource requests and limits for Ambassador
+          limits:
+            cpu: 1000m
+            memory: 600Mi
+          requests:
+            cpu: 100m # 200m recommended
+            memory: 150Mi # 300 recommended
           # metrics: #prometheus integration config begins
           #   serviceMonitor:
           #     enabled: true
