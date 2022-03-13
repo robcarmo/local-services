@@ -25,22 +25,22 @@ spec:
             enabled: true 
           createDefaultListeners: false # false is required to allow listeners to be created as custom config, because we have 2 instances of ambassador, for 1 instance this is not required
           autoscaling: # Autoscalibg minimum setup
-          enabled: false
-          minReplicas: 3
-          maxReplicas: 50
-          metrics:
-          - type: Resource
-            resource:
-              name: cpu
-              target:
-                type: Utilization
-                averageUtilization: 60
-          - type: Resource
-            resource:
-              name: memory
-              target:
-                type: Utilization
-                averageUtilization: 60
+            enabled: false
+            minReplicas: 3
+            maxReplicas: 50
+            metrics:
+            - type: Resource
+              resource:
+                name: cpu
+                target:
+                  type: Utilization
+                  averageUtilization: 60
+            - type: Resource
+              resource:
+                name: memory
+                target:
+                  type: Utilization
+                  averageUtilization: 60
           service:
             type: LoadBalancer
             externalTrafficPolicy: "Cluster"
