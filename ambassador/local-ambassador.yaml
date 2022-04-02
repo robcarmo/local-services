@@ -84,7 +84,7 @@ spec:
       - CreateNamespace=true
     ignoreDifferences:
     -  group: apps
-       kind: ClusterRole	
+       kind: Deployment
        name: local-amb-edge-stack	
        namespace: ambassador
        jsonPointers:
