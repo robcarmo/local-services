@@ -27,7 +27,7 @@ spec:
           autoscaling: # Autoscalibg minimum setup
             enabled: false
             minReplicas: 3
-            maxReplicas: 50
+            maxReplicas: 10
             metrics:
             - type: Resource
               resource:
@@ -82,3 +82,7 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+  ignoreDifferences:
+  - kind: ClusterRole
+    namespace: ambassador
+    name: local-amb-edge-stack  
