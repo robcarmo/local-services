@@ -84,6 +84,6 @@ spec:
       - CreateNamespace=true
     ignoreDifferences:
     - group: apps
-      kind: Deployment
+      kind: ClusterRole
       jsonPointers:
       - /spec/replicas
