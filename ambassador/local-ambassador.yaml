@@ -86,3 +86,6 @@ spec:
   - kind: ClusterRole
     namespace: ambassador
     name: local-amb-edge-stack  
+  - kind: ClusterRole
+    namespace: ambassador
+    name: local-amb-edge-stack-agent
