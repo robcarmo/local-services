@@ -82,14 +82,10 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-    ignoreDifferences:	
-      - jsonPointers:	
-          - /data	
-        kind: ClusterRole	
-        name: local-amb-edge-stack	
-        namespace: ambassador	
-      - jsonPointers:	
-          - /data	
-        kind: ClusterRole	
-        name: local-amb-edge-stack-agent	
-        namespace: ambassador
+    ignoreDifferences:
+    -  group: apps
+       kind: ClusterRole	
+       name: local-amb-edge-stack	
+       namespace: ambassador
+       jsonPointers:
+       - /spec/replicas
