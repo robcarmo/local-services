@@ -83,9 +83,9 @@ spec:
     syncOptions:
       - CreateNamespace=true
     ignoreDifferences:
-    -  group: apps
-       kind: Deployment
-       name: local-amb-edge-stack	
-       namespace: ambassador
-       jsonPointers:
-       - /spec/replicas
+    - group: apps
+      kind: Deployment
+      namespace: ambassador
+      name: ambassador
+      jsonPointers:
+      - /spec/replicas
