@@ -84,12 +84,12 @@ spec:
       - CreateNamespace=true
   ignoreDifferences:
   - kind: ClusterRole
-    namespace: ambassador
+    namespace: (global)
     name: local-amb-edge-stack
     jsonPointers:
     - /spec/replicas
   - kind: ClusterRole
-    namespace: ambassador
+    namespace: (global)
     name: local-amb-edge-stack-agent
     jsonPointers:
     - /spec/replicas
