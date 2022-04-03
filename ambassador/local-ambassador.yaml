@@ -86,6 +86,6 @@ spec:
   - group: apps
     kind: ClusterRole
     namespace: ambassador
-    name: ambassador
+    name: local-amb-edge-stack
     jsonPointers:
     - /spec/replicas
