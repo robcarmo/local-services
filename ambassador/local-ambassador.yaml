@@ -83,12 +83,14 @@ spec:
     syncOptions:
       - CreateNamespace=true
   ignoreDifferences:
-  - kind: ClusterRole
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
     namespace: ambassador
     name: local-amb-edge-stack
     jsonPointers:
     - /spec
-  - kind: ClusterRole
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
     namespace: ambassador
     name: local-amb-edge-stack-agent
     jsonPointers:
