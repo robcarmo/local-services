@@ -84,7 +84,7 @@ spec:
       - CreateNamespace=true
   ignoreDifferences:
   - group: apps
-    kind: Deployment
+    kind: ClusterRole
     namespace: ambassador
     name: ambassador
     jsonPointers:
