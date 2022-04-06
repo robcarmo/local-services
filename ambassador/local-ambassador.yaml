@@ -85,12 +85,6 @@ spec:
   ignoreDifferences:
     - group: rbac.authorization.k8s.io
       kind: ClusterRole
-      namespace: ambassador
       name: local-amb-edge-stack
-      jsonPointers:
-      - /rules
-    - kind: ClusterRole
-      namespace: ambassador
-      name: local-amb-edge-stack-agent
       jsonPointers:
       - /rules
