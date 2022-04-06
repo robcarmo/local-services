@@ -88,9 +88,9 @@ spec:
       namespace: ambassador
       name: local-amb-edge-stack
       jsonPointers:
-      - /spec
+      - /rules
     - kind: ClusterRole
       namespace: ambassador
       name: local-amb-edge-stack-agent
       jsonPointers:
-      - /spec
+      - /rules
