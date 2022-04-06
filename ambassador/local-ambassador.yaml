@@ -84,7 +84,7 @@ spec:
       - CreateNamespace=true
   ignoreDifferences:
     - kind: ClusterRole
-      namespace: monitor
-      name: kiali
+      namespace: ambassador
+      name: local-amb-edge-stack
       jsonPointers:
       - /spec
