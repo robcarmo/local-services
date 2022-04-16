@@ -5,5 +5,6 @@ resources:
 - istio-base
 - istiod
 - istio-ingress
+- calico
 
 
