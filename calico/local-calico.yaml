@@ -13,8 +13,10 @@ spec:
     repoURL: https://projectcalico.docs.tigera.io/charts
     chart: tigera-operator
     targetRevision: v3.22.0
-    # helm:
-    #   values: |
+    helm:
+      values: |
+        installation:
+          kubernetesProvider: ""
   destination:
     server: https://kubernetes.default.svc
     namespace: calico-system
